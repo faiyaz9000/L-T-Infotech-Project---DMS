@@ -7,6 +7,12 @@
     <title>Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script> 
 </head>
 <body>
     <div class="container-fluid">
@@ -18,12 +24,12 @@
                     <p class="text-center">Please fill your details</p>
                 </div>
 
-                <form action="#">
+                <form  id="registerf" method="post" action="">
                 
                     <div class="form-group row">     
                         <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name">
+                            <input type="text" class="form-control user-input" name="firstName" id="firstName" placeholder="First Name">
                         </div>
                     </div>
                 
@@ -31,50 +37,51 @@
                     <div class="form-group row">
                         <label for="lastName" class="col-sm-3 col-form-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name">
+                            <input type="text" class="form-control user-input"  name="lastName" id="lastName" placeholder="Last Name">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="mobile" class="col-sm-3 col-form-label">Mobile</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile Number">
+                            <input type="text" class="form-control user-input" name="mobile" id="mobile" placeholder="Mobile Number" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label">Email Id</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+                            <input type="email" class="form-control user-input" name="email"  id="email" placeholder="Enter your email">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+                            <input type="password" class="form-control user-input" name="password" id="password" placeholder="Enter password">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="dob" class="col-sm-3 col-form-label">DOB</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" name="dob" id="dob">
+                            <input type="date" class="form-control user-input" name="dob" id="dob">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="gender">
+                            <select class="form-control user-input" name="gender" id="gender">
                                 <option>Male</option>
                                 <option>Female</option>
+                                <option>Other</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="register-btn">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <input type="submit" name="registerf" id="registerf" value="Register" class="btn btn-block btn-primary" >
                     </div>
 
                 </form>
@@ -83,5 +90,60 @@
              <div class="col-sm-3"></div>
         </div>
     </div>
+
+  
+
+     <script src="main.js"></script>
+   
+     
+
+     <script>
+
+        $(document).ready(function(){
+
+            initJsStore(); 
+             
+        });
+
+        $('form[id="registerf"]').validate({
+        rules: {
+            firstName: 'required',
+            lastName: 'required',
+            mobile: 'required',
+            email: {
+            required: true,
+            email: true,
+            },
+            password: {
+            required: true,
+            minlength: 8,
+            },
+            dob: 'required',
+          
+
+        },
+        messages: {
+            firstName: 'Please enter your first name',
+            lastName: 'Please enter your last name',
+            email: 'Enter a valid email',
+            password: {
+            minlength: 'Password must be at least 8 characters long'
+            },
+            mobile: 'Please enter your mobile number',
+            dob: 'Please select your date of birth',
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+        });
+
+        $("#registerf").on("submit",function(){
+
+            if($("#registerf").valid())
+            {
+                RegisterUser();
+            }
+        });
+    </script>
 </body>
 </html>

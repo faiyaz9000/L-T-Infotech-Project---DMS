@@ -19,3 +19,8 @@ body{
 .login-btn{
     margin:12% 0;
 }
+
+.error{
+    color: red;
+    font-weight: 600;
+}

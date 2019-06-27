@@ -1,5 +1,13 @@
 body {
     background-color: rgb(186, 212, 221);
+}
+
+label {
+    font-weight: 600;
+}
+
+.error {
+    color: red;
     font-weight: 600;
 }
 

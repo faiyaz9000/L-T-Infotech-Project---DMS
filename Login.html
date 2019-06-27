@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="jsstore.js"></script>
+
     <link rel="stylesheet" href="stylel.css">
 </head>
 <body>
@@ -25,29 +28,53 @@
             <h3><strong>Login Form</strong></h3>
             <p>Kindly use your username and password to login</p>
         </div>
-            <form>
+            <form id="login" method="post" action="#">
             <div class="form-group row">
-                <label for="usrnme" class="col-sm-3 col-form-label">Username:</label>
+                <label for="email" class="col-sm-3 col-form-label">Email:</label>
                 <div class="col-sm-9 ">
-                <input type="text" class="form-control " id="usrnme" placeholder="Enter username" name="usrnme">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="pwd" class="col-sm-3 col-form-label">Password:</label>
                 <div class="col-sm-9">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                <input type="password" class="form-control"  name="pwd" id="pwd" placeholder="Enter password">
                 </div>
             </div>
-        </form>
 
-        <div class="login-btn">
-            <a href="#" class="btn btn-success">Login</a>
-            <a href="#" class="btn btn-secondary">Forget Password?</a>
-        </div>
-        </div>
+            <div class="login-btn">
+                <input type="submit" name="login" id="login" value="Login" class="btn btn-success">
+                <a href="#" class="btn btn-secondary">Forget Password?</a>
+            </div>
+        </form>
+    </div>
+
         
         <div class="col-sm-4"></div>
     </div>
     </div>
+    <script>
+    $('form[id="login"]').validate({
+    rules: {
+        email: {
+        required: true,
+        email: true,
+        },
+        pwd: {
+        required: true,
+        minlength: 8,
+        },
+        },
+        messages: {
+            email:'Enter a valid email',
+            pwd: {
+            minlength:'Password must be at least 8 characters long'
+            },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+        });
+    </script>
 </body>
 </html>
