@@ -11,8 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script> 
+     <!-- <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>  -->
 </head>
 <body>
     <div class="container-fluid">
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="register-btn">
-                    <input type="submit" name="registerf" id="registerf" value="Register" class="btn btn-block btn-primary" >
+                    <input type="submit" name="registerf" id="registerf" value="Register" class="btn btn-block btn-primary">
                     </div>
 
                 </form>
@@ -91,18 +91,12 @@
         </div>
     </div>
 
-  
-
-     <script src="main.js"></script>
-   
-     
-
+       <script src="main.js"></script>
+    
      <script>
 
         $(document).ready(function(){
-
-            initJsStore(); 
-             
+  
         });
 
         $('form[id="registerf"]').validate({
@@ -144,6 +138,8 @@
                 RegisterUser();
             }
         });
+
+
     </script>
 </body>
 </html>

@@ -11,7 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="jsstore.js"></script>
 
     <link rel="stylesheet" href="stylel.css">
 </head>
@@ -43,14 +42,14 @@
             </div>
 
             <div class="login-btn">
-                <input type="submit" name="login" id="login" value="Login" class="btn btn-success">
+                <input type="submit" name="login" id="login" value="Login" class="btn btn-success"  onClick="check()">
                 <a href="#" class="btn btn-secondary">Forget Password?</a>
             </div>
         </form>
     </div>
 
         
-        <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
     </div>
     </div>
     <script>
@@ -75,6 +74,27 @@
             form.submit();
         }
         });
+
+        function check() {
+
+        // stored data from the register-form
+        var storedEmail = localStorage.getItem('datavalue.Email');
+        var storedPassword = localStorage.getItem('datavalue.Password');
+
+        // entered data from the login-form
+        var userEmail = document.getElementById('email');
+        var userPassword = document.getElementById('pwd');
+
+        // check if stored data from register-form is equal to data from login form
+        if(userEmail.value == storedEmail && userPassword.value == storedPassword) {
+        alert('You are logged in.');
+        }else {
+        alert('Invalid email or password');
+        }
+    }
+
+
+
     </script>
 </body>
 </html>
