@@ -36,7 +36,7 @@ function GetUserList()
    localStorage.UseStorage= JSON.stringify(UserList);
 
    alert('Registration Successful');
-   location.href="/Login.html";
+  //  location.href="/Login.html";
    
 } catch(ex)
 {
