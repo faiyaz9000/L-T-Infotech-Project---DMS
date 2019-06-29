@@ -44,6 +44,7 @@
             <div class="login-btn">
                 <input type="submit" name="login" id="login" value="Login" class="btn btn-success"  onClick="check()">
                 <a href="#" class="btn btn-secondary">Forget Password?</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
             </div>
         </form>
     </div>
@@ -77,21 +78,24 @@
 
         function check() {
 
-        // stored data from the register-form
-        var storedEmail = localStorage.getItem('datavalue.Email');
-        var storedPassword = localStorage.getItem('datavalue.Password');
+            var storedEmail = localStorage.getItem(UserList);
 
-        // entered data from the login-form
-        var userEmail = document.getElementById('email');
-        var userPassword = document.getElementById('pwd');
+            // stored data from the register-form
+            // var storedEmail = localStorage.getItem('datavalue.Email');
+            // var storedPassword = localStorage.getItem('datavalue.Password');
 
-        // check if stored data from register-form is equal to data from login form
-        if(userEmail.value == storedEmail && userPassword.value == storedPassword) {
-        alert('You are logged in.');
-        }else {
-        alert('Invalid email or password');
+            // entered data from the login-form
+            var userEmail = document.getElementById('email');
+            var userPassword = document.getElementById('pwd');
+
+            // check if stored data from register-form is equal to data from login form
+            if(userEmail.value == storedEmail && userPassword.value == storedPassword) {
+                alert('You are logged in.');
+            }else {
+                console.log(storedEmail);
+            }
         }
-    }
+    
 
 
 
