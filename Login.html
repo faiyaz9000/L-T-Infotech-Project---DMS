@@ -78,7 +78,11 @@
 
         function check() {
 
-            var storedEmail = localStorage.getItem(UserList);
+            const index = UserList.findIndex(function(user, index){
+                return user.FirstName === 'Arfat'
+            })
+
+            alert(index);
 
             // stored data from the register-form
             // var storedEmail = localStorage.getItem('datavalue.Email');

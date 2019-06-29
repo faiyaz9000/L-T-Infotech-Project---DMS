@@ -33,10 +33,10 @@ function GetUserList()
 
    UserList.push(datavalue);
 
-   localStorage.UseStorage= JSON.stringify(UserList);
+   localStorage.UseStorage = JSON.stringify(UserList);
 
    alert('Registration Successful');
-   location.href="/Login.html";
+   window.location = "/Login.html";
    
 } catch(ex)
 {
