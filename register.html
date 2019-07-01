@@ -11,11 +11,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
      <!-- <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>  -->
+     <script src="tablescript.js"></script>
+
 </head>
-<body>
-    <div class="container-fluid">
+<body ng-app="User">
+    <div class="container-fluid" ng-controller="UserController" >
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 form-body">
@@ -24,12 +28,12 @@
                     <p class="text-center">Please fill your details</p>
                 </div>
 
-                <form  id="registerf" method="post" action="#">
+                <form  name="frm" id="registerf" method="post" action="#">
                 
                     <div class="form-group row">     
                         <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control user-input" name="firstName" id="firstName" placeholder="First Name">
+                            <input type="text" class="form-control user-input" name="firstName" id="firstName" ng-model="firstName" placeholder="First Name">
                         </div>
                     </div>
                 
@@ -37,42 +41,42 @@
                     <div class="form-group row">
                         <label for="lastName" class="col-sm-3 col-form-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control user-input"  name="lastName" id="lastName" placeholder="Last Name">
+                            <input type="text" class="form-control user-input"  name="lastName" id="lastName" ng-model="lastName" placeholder="Last Name">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="mobile" class="col-sm-3 col-form-label">Mobile</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control user-input" name="mobile" id="mobile" placeholder="Mobile Number" >
+                            <input type="text" class="form-control user-input" name="mobile" id="mobile" ng-model="mobile" placeholder="Mobile Number" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label">Email Id</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control user-input" name="email"  id="email" placeholder="Enter your email">
+                            <input type="email" class="form-control user-input" name="email"  id="email" ng-model="email" placeholder="Enter your email">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control user-input" name="password" id="password" placeholder="Enter password">
+                            <input type="password" class="form-control user-input" name="password" id="password" ng-model="password" placeholder="Enter password">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="dob" class="col-sm-3 col-form-label">DOB</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control user-input" name="dob" id="dob">
+                            <input type="date" class="form-control user-input" name="dob" id="dob" ng-model="dob">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                         <div class="col-sm-9">
-                            <select class="form-control user-input" name="gender" id="gender">
+                            <select class="form-control user-input" name="gender" id="gender" ng-model="gender">
                                 <option>Male</option>
                                 <option>Female</option>
                                 <option>Other</option>
@@ -81,7 +85,7 @@
                     </div>
 
                     <div class="register-btn">
-                        <button type="submit" name="registerf" id="registerf" class="btn btn-block btn-primary btn-lg">Register</button>
+                        <button type="submit" name="registerf" id="registerf" class="btn btn-block btn-primary" ng-click="addUser()" ng-disabled="frm.$invalid">Register</button>
                         <br>
                         <div class="text-center">
                         <a href="Login.html" class="btn btn-success">Login</a>
@@ -95,56 +99,56 @@
         </div>
     </div>
 
-       <script src="mainLocal.js"></script>
+       <!-- <script src="mainLocal.js"></script> -->
     
-     <script>
+       <!-- <script>
 
-        $(document).ready(function(){
+          $(document).ready(function(){
+    
+          });
   
-        });
-
-        $('form[id="registerf"]').validate({
-        rules: {
-            firstName: 'required',
-            lastName: 'required',
-            mobile: 'required',
-            email: {
-            required: true,
-            email: true,
-            },
-            password: {
-            required: true,
-            minlength: 8,
-            },
-            dob: 'required',
+          $('form[id="registerf"]').validate({
+          rules: {
+              firstName: 'required',
+              lastName: 'required',
+              mobile: 'required',
+              email: {
+              required: true,
+              email: true,
+              },
+              password: {
+              required: true,
+              minlength: 8,
+              },
+              dob: 'required',
+            
+  
+          },
+          messages: {
+              firstName: 'Please enter your first name',
+              lastName: 'Please enter your last name',
+              email: 'Enter a valid email',
+              password: {
+              minlength: 'Password must be at least 8 characters long'
+              },
+              mobile: 'Please enter your mobile number',
+              dob: 'Please select your date of birth',
+          },
+          submitHandler: function(form) {
+              form.submit();
+          }
+          });
+  
+          $("#registerf").on("submit",function(){
+  
+              if($("#registerf").valid())
+              {
+                  RegisterUser();
+              }
+          });
+  
           
-
-        },
-        messages: {
-            firstName: 'Please enter your first name',
-            lastName: 'Please enter your last name',
-            email: 'Enter a valid email',
-            password: {
-            minlength: 'Password must be at least 8 characters long'
-            },
-            mobile: 'Please enter your mobile number',
-            dob: 'Please select your date of birth',
-        },
-        submitHandler: function(form) {
-            form.submit();
-        }
-        });
-
-        $("#registerf").on("submit",function(){
-
-            if($("#registerf").valid())
-            {
-                RegisterUser();
-            }
-        });
-
-        
-
-    </script>
+  
+      </script> -->
 </body>
 </html>
