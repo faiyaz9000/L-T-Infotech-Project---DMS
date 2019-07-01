@@ -11,8 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 
     <link rel="stylesheet" href="stylel.css">
+    <script src="tablescript.js"></script>
 </head>
 <body>
     <div class="container-fluid text-center">
@@ -78,32 +81,25 @@
         }
         });
 
+
         function check() {
 
-            const index = UserList.findIndex(function(user, index){
-                return user.FirstName === 'Arfat'
-            })
-
-            alert(index);
-
             // stored data from the register-form
-            // var storedEmail = localStorage.getItem('datavalue.Email');
-            // var storedPassword = localStorage.getItem('datavalue.Password');
+            
+            var storedEmail = localStorage.getItem("user.email");
+            var storedPassword = localStorage.getItem("user.password");
 
             // entered data from the login-form
-            var userEmail = document.getElementById('email');
-            var userPassword = document.getElementById('pwd');
+            var userEmail = document.getElementById("email");
+            var userPassword = document.getElementById("pwd");
 
             // check if stored data from register-form is equal to data from login form
             if(userEmail.value == storedEmail && userPassword.value == storedPassword) {
                 alert('You are logged in.');
             }else {
-                console.log(storedEmail);
+                alert('Invalid email or password');
             }
         }
-    
-
-
 
     </script>
 </body>

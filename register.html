@@ -19,7 +19,7 @@
 
 </head>
 <body ng-app="User">
-    <div class="container-fluid" ng-controller="UserController" >
+    <div class="container-fluid" ng-controller="UserController">
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 form-body">
@@ -28,7 +28,7 @@
                     <p class="text-center">Please fill your details</p>
                 </div>
 
-                <form  name="frm" id="registerf" method="post" action="#">
+                <form novalidate name="frm" id="registerf" ng-submit="submitForm(frm)" method="post" action="#">
                 
                     <div class="form-group row">     
                         <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
@@ -99,9 +99,9 @@
         </div>
     </div>
 
-       <!-- <script src="mainLocal.js"></script> -->
-    
-       <!-- <script>
+       <!-- <script src="mainLocal.js"></script>  -->
+     
+        <!-- <script>
 
           $(document).ready(function(){
     
@@ -139,16 +139,16 @@
           }
           });
   
-          $("#registerf").on("submit",function(){
+         $("#registerf").on("submit",function(){
   
-              if($("#registerf").valid())
-              {
+               if($("#registerf").valid())
+               {
                   RegisterUser();
               }
-          });
+             });    
   
-          
-  
-      </script> -->
+
+        ;
+      </script>   -->
 </body>
 </html>

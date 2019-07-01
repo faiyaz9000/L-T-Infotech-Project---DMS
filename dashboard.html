@@ -15,81 +15,79 @@
 </head>
 <body ng-app="User">
     <div class="container-fluid" ng-controller="UserController">
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse " id="collapse_target">
+            <div class="collapse navbar-collapse " id="collapse_target">
 
-        <a class="navbar-brand"><img class="logoimg" src="logo.gif"></a>
-        <span class="navbar-text">Welcome to Document Management System</span>
+            <a class="navbar-brand" href=""><img class="logoimg" src="logo.gif"></a>
+            <span class="navbar-text">Welcome to Document Management System</span>
+            
+            <ul class="navbar-nav ml-auto">
+                <div class="btn btn-group btn-success">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="Login.html">Login</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Review Data</a> 
+                </li>
+            </div>
+            </ul>
         
-        <ul class="navbar-nav ml-auto">
-            <div class="btn btn-group btn-success">
-            <li class="nav-item dropdown">
-                
-                <a class="nav-link" href="Login.html">Login</a>
-                
-            </li>
-            
-            <li class="nav-item">
-                    
-                <a class="nav-link" href="register.html">Register</a>
-                    
-            </li>
-            
-            <li class="nav-item">
-                
-                <a class="nav-link" href="#">Review Data</a>
-                
-            </li>
-        </div>
-        </ul>
-    
-        </div>
-    </nav>
-    <div class="jumbotron" style="margin-bottom:0px;">
-        <h1 class="text-center">Review Table</h1>
-        <table class="table">
-            <thead class="black white-text">
-              <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Mobile</th>
-                  <th>Email Id</th>
-                  <th>Password</th>
-                  <th>DOB</th>
-                  <th>Gender</th>
-                  <th>Action</th>
+            </div>
+        </nav>
+        <div class="jumbotron" style="margin-bottom:0px;">
+            <h1 class="text-center">Review Table</h1>
+            <div class="table-responsive">
 
-              </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="user in user">  
-                    <td>{{ user.firstName }}  
-                    </td>  
-                    <td>{{ user.lastName }}  
-                    </td>  
-                    <td>{{ user.mobile }}  
-                    </td>
-                    <td>{{ user.email }}  
-                    </td>
-                    <td>{{ user.password }}  
-                    </td>
-                    <td>{{ user.dob }}  
-                    </td>
-                    <td>{{ user.gender }}  
-                    </td>
-                    <td>  
-                        <button ng-click="deleteUser(user)">Delete</button>  
-                    </td>  
-                </tr>  
-            </tbody>
-        </table>    
-        <div>Total User : {{count}}</div>  
-         
-     </div>
+                <table class="table">
+                    <thead class="black white-text">
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Action</th>
+        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in user">
+        
+                            <td>{{ user.firstName }}  
+                            </td>  
+                            <td>{{ user.lastName }}  
+                            </td>  
+                            <td>{{ user.mobile }}  
+                            </td>
+                            <td>{{ user.email }}  
+                            </td>
+                            <td>{{ user.password }}  
+                            </td>
+                            <td>{{ user.dob }}  
+                            </td>
+                            <td>{{ user.gender }}  
+                            </td>
+                            <td>  
+                                <button ng-click="deleteUser(user)">Delete</button>  
+                            </td>  
+                        </tr>  
+                    </tbody>
+                </table>    
+                <div>Total User : {{count}}</div>  
+                
+            </div>
+        </div>
 
     </div> 
 
