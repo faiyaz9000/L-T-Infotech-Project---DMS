@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    <link rel="icon" href="doc-icon.png">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,13 +15,37 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-     <!-- <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/jsstore/dist/jsstore.worker.min.js"></script>  -->
      <script src="tablescript.js"></script>
 
 </head>
 <body ng-app="User">
     <div class="container-fluid" ng-controller="UserController">
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse " id="collapse_target">
+        
+                    <a class="navbar-brand" href=""><img class="logoimg" src="logo.gif"></a>
+                    <span class="navbar-text">Welcome to Document Management System</span>
+                    
+                    <ul class="navbar-nav ml-auto">
+                        <div class="btn btn-group btn-success">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="Login.html">Login</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Register</a>
+                        </li>
+                        
+                        
+                    </div>
+                    </ul>
+                
+                    </div>
+                </nav>
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 form-body">
@@ -33,7 +59,7 @@
                     <div class="form-group row">     
                         <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control user-input" name="firstName" id="firstName" ng-model="firstName" placeholder="First Name">
+                            <input type="text" class="form-control user-input" name="firstName" id="firstName" ng-model="firstName" placeholder="First Name" required>
                         </div>
                     </div>
                 
@@ -41,42 +67,43 @@
                     <div class="form-group row">
                         <label for="lastName" class="col-sm-3 col-form-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control user-input"  name="lastName" id="lastName" ng-model="lastName" placeholder="Last Name">
+                            <input type="text" class="form-control user-input"  name="lastName" id="lastName" ng-model="lastName" placeholder="Last Name" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="mobile" class="col-sm-3 col-form-label">Mobile</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control user-input" name="mobile" id="mobile" ng-model="mobile" placeholder="Mobile Number" >
+                            <input type="text" class="form-control user-input" name="mobile" id="mobile" ng-model="mobile" placeholder="Mobile Number" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label">Email Id</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control user-input" name="email"  id="email" ng-model="email" placeholder="Enter your email">
-                        </div>
+                            <input type="email" class="form-control user-input" name="email"  id="email" ng-model="email" placeholder="Enter your email" required>
+                           </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control user-input" name="password" id="password" ng-model="password" placeholder="Enter password">
+                            <input type="password" class="form-control user-input" name="password" id="password" ng-model="password" placeholder="Enter password" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="dob" class="col-sm-3 col-form-label">DOB</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control user-input" name="dob" id="dob" ng-model="dob">
+                            <input type="date" class="form-control user-input" name="dob" id="dob" ng-model="dob" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                         <div class="col-sm-9">
-                            <select class="form-control user-input" name="gender" id="gender" ng-model="gender">
+                            <select class="form-control user-input" name="gender" id="gender" ng-model="gender" required>
+                                <option value="" disabled selected>Select your gender</option>
                                 <option>Male</option>
                                 <option>Female</option>
                                 <option>Other</option>
@@ -99,9 +126,9 @@
         </div>
     </div>
 
-       <!-- <script src="mainLocal.js"></script>  -->
-     
-        <!-- <script>
+       <!-- <script src="mainLocal.js"></script> -->
+<!--      
+        <script>
 
           $(document).ready(function(){
     
@@ -121,8 +148,6 @@
               minlength: 8,
               },
               dob: 'required',
-            
-  
           },
           messages: {
               firstName: 'Please enter your first name',
@@ -149,6 +174,6 @@
   
 
         ;
-      </script>   -->
+      </script> -->
 </body>
 </html>

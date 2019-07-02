@@ -4,9 +4,6 @@ function GetUserList()
 }
  function RegisterUser()
 {
-
-   debugger;
-
    try {
    var datavalue={
       Id:Math.random(),

@@ -7,10 +7,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="dash.css">
     <title>Dashboard</title>
+    <link rel="icon" href="doc-icon.png">
+
     <script src="tablescript.js"></script>
 </head>
 <body ng-app="User">
@@ -79,7 +81,7 @@
                             <td>{{ user.gender }}  
                             </td>
                             <td>  
-                                <button ng-click="deleteUser(user)">Delete</button>  
+                                <button ng-click="deleteUser(user)"><i class="fa fa-trash-o" style="font-size:24px"></i></button>  
                             </td>  
                         </tr>  
                     </tbody>

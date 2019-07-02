@@ -63,29 +63,7 @@ app.controller('UserController', ['$scope', 'getLocalStorage', function ($scope,
         getLocalStorage.updateUser($scope.user);    
         $scope.count = $scope.user.length;    
     };   
-
-    $scope.checkLogin = function() {
-
-        var userEmail = $scope.email;
-        var userPassword = $scope.pwd;
-
-        alert(userEmail);
-        // var storedEmail = localStorage.getItem("user.email");
-        // var storedPassword = localStorage.getItem("user.password");
-
-        // entered data from the login-form
-        // var userEmail = document.getElementById("email");
-        // var userPassword = document.getElementById("pwd");
-
-        // check if stored data from register-form is equal to data from login form
-        if(userEmail.value == storedEmail && userPassword.value == storedPassword) {
-            alert('You are logged in.');
-        }else {
-            alert('Invalid email or password');
-        }
-    };
-    
-    
+     
 }]);  
 
 
