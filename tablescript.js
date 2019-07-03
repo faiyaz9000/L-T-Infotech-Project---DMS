@@ -54,12 +54,33 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
         // $scope.gender = '';    
         // $scope.count = $scope.user.length;  
         // $scope.ShowSuccessMessage=true;  
-        $window.alert('Registration Successful');
+        // $window.alert('Registration Successful');
         // $location.path('/register.html');
 
         $window.location.href= 'Login.html';
         
     };    
+
+
+    $scope.checkUser = function (emailValue) {
+
+        var data = JSON.parse(localStorage.getItem("user"));
+
+        var found = data.find(function(element) {
+            return element.email === emailValue;
+        });
+        
+        console.log(data[email]);
+
+        // $window.alert(found);
+
+        // if($scope.email == 'some@user.com'){
+        //     $window.alert('if working well');
+        // }
+        // else{
+        //     $window.alert('if not working');
+        // }
+    };
         
     //Delete User - Using AngularJS splice to remove the emp row from the User list    
     //All the Update User to update the locally stored User List    

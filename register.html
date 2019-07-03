@@ -129,10 +129,33 @@
                     </div>
 
                     <div class="register-btn">
-                        <input type="submit" class="btn btn-block btn-primary" ng-click="addUser()" ng-disabled="form.$invalid" value="Register">
+                        <input type="submit" class="btn btn-block btn-primary" data-toggle="modal" data-target="#reg-modal"  ng-disabled="form.$invalid" value="Register">
+                    </div>
+
+                    <div class="modal" id="reg-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Registration Successful</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                
+                                <!-- Modal body -->
+                                <div class="modal-body">You have been registered successfully. Please click below for login.</div>
+                                
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="addUser()">Login</button>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
                     <div class="text-center">
-                    <a href="Login.html" class="btn btn-success">Login</a></div><br>
+                    <a href="Login.html" class="btn btn-success">Login</a>
+                    </div><br>
                 </form>
 
             </div>
