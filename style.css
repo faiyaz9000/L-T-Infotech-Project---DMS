@@ -37,3 +37,8 @@ label {
 .error-msg {
     color : red;
 }
+.navbar-dark .navbar-nav .nav-link {
+    
+    color: #fff;
+    
+}
