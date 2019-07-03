@@ -2,6 +2,11 @@ body {
     background-color: rgb(186, 212, 221);
 
 }
+.row{
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-top: 20px; 
+}
 .container-fluid {
     padding: 0;
 }
@@ -15,11 +20,6 @@ label {
     padding: 0 5%;
     box-shadow: 2px 2px 15px 7px rgb(59, 117, 136);
 }
-
-.form-group {
-    padding: 5px 0;
-}
-
 
 .register-btn {
     margin: 7% 0;

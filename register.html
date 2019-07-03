@@ -22,6 +22,21 @@
     <div class="container-fluid" ng-controller="UserController">
            
         <!-- <div class="alert alert-success"> Registration successful. </div> -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="collapse_target">
+
+            <a class="navbar-brand" href=""><img class="logoimg" src="logo.gif"></a>
+            <span class="navbar-text">Welcome to Document Management System</span>
+            
+            
+        
+            </div>
+        </nav>
+
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 form-body">
@@ -116,11 +131,15 @@
                     <div class="register-btn">
                         <input type="submit" class="btn btn-block btn-primary" ng-click="addUser()" ng-disabled="form.$invalid" value="Register">
                     </div>
+                    <div class="text-center">
+                    <a href="Login.html" class="btn btn-success">Login</a></div><br>
                 </form>
 
             </div>
 
-             <div class="col-sm-3"></div>
+             <div class="col-sm-3">
+
+             </div>
         </div>
     </div>
 

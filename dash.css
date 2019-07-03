@@ -1,3 +1,6 @@
+.jumbotron{
+    background-color: rgb(186, 212, 221);
+}
 .logoimg{
     height: 30px;
     width: 60px;
@@ -15,4 +18,3 @@
     color: #fff;
     
 }
-
