@@ -21,7 +21,33 @@
 <body ng-app="User">
     <div class="container-fluid" ng-controller="UserController">
            
-        <div class="alert alert-success"> Registration successful. </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="collapse_target">
+
+            <a class="navbar-brand" href=""><img class="logoimg" src="logo.gif"></a>
+            <span class="navbar-text">Welcome to Document Management System</span>
+            
+            <ul class="navbar-nav ml-auto">
+                <div class="btn btn-group btn-success">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="Login.html">Login</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                
+            </div>
+            </ul>
+        
+            </div>
+        </nav>
+
+
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 form-body">

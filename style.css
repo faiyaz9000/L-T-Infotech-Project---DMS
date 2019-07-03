@@ -38,3 +38,8 @@ label {
 .nav-item {
     margin: 5px;
 }
+.navbar-dark .navbar-nav .nav-link {
+    
+    color: #fff;
+    
+}
