@@ -27,7 +27,7 @@ return {
 var app = angular.module('User', ['storageService']);    
   
 // Create the Controller UserController  
-app.controller('UserController', ['$scope', 'getLocalStorage', function ($scope, getLocalStorage) {    
+app.controller('UserController', ['$scope','$window', 'getLocalStorage', function ($scope, $window,getLocalStorage) {    
     $scope.appTitle = "LocalStorage Demo";    
     $scope.appHeadline = "AngularJS and HTML5";    
   
@@ -53,7 +53,11 @@ app.controller('UserController', ['$scope', 'getLocalStorage', function ($scope,
         // $scope.dob = '';    
         // $scope.gender = '';    
         // $scope.count = $scope.user.length;  
-        $scope.ShowSuccessMessage=true;  
+        // $scope.ShowSuccessMessage=true;  
+        $window.alert('Registration Successful');
+        // $location.path('/register.html');
+
+        $window.location.href= 'Login.html';
         
     };    
         

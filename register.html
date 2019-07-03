@@ -21,33 +21,7 @@
 <body ng-app="User">
     <div class="container-fluid" ng-controller="UserController">
            
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse " id="collapse_target">
-
-            <a class="navbar-brand" href=""><img class="logoimg" src="logo.gif"></a>
-            <span class="navbar-text">Welcome to Document Management System</span>
-            
-            <ul class="navbar-nav ml-auto">
-                <div class="btn btn-group btn-success">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="Login.html">Login</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="register.html">Register</a>
-                </li>
-                
-            </div>
-            </ul>
-        
-            </div>
-        </nav>
-
-
+        <!-- <div class="alert alert-success"> Registration successful. </div> -->
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 form-body">
@@ -63,7 +37,7 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control user-input" ng-model="firstName" name="firstName" placeholder="First Name" required>
                             <div ng-show="form.$submitted || form.firstName.$touched">
-                              <div ng-show="form.firstName.$error.required">This field is required</div>
+                              <div class="error-msg" ng-show="form.firstName.$error.required">This field is required</div>
                             </div>
                         </div>
                     </div>
@@ -73,7 +47,7 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control user-input" ng-model="lastName" name="lastName" placeholder="Last Name" required>
                             <div ng-show="form.$submitted || form.lastName.$touched">
-                                <div ng-show="form.lastName.$error.required">This field is required</div>
+                                <div class="error-msg" ng-show="form.lastName.$error.required">This field is required</div>
                             </div>
                         </div>
                     </div>
@@ -83,7 +57,7 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control user-input" ng-model="mobile" name="mobile" placeholder="Mobile Number" required>
                             <div ng-show="form.$submitted || form.mobile.$touched">
-                                <div ng-show="form.mobile.$error.required">This field is required</div>
+                                <div class="error-msg" ng-show="form.mobile.$error.required">This field is required</div>
                             </div>
                         </div>
                     </div>
@@ -95,8 +69,8 @@
                         <div class="col-sm-9">
                             <input type="email" class="form-control user-input" ng-model="email" name="email" placeholder="Email Id" required>
                             <div ng-show="form.$submitted || form.email.$touched">
-                              <span ng-show="form.email.$error.required">This field is required</span>
-                              <span ng-show="form.email.$error.email">Please enter a valid email</span>
+                              <span class="error-msg" ng-show="form.email.$error.required">This field is required</span>
+                              <span class="error-msg" ng-show="form.email.$error.email">Please enter a valid email</span>
                             </div>    
                         </div>
                     </div>
@@ -104,9 +78,12 @@
                     <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control user-input" ng-model="password" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control user-input" ng-model="password" ng-minlength="8" name="password" placeholder="Password" required>
+
                             <div ng-show="form.$submitted || form.password.$touched">
-                                <div ng-show="form.password.$error.required">This field is required</div>
+                                <div class="error-msg" ng-show="form.password.$error.required">This field is required</div>
+                                <div class="error-msg" ng-show="form.password.$error.minlength">Password must be atleast 8 characters long</div>
+
                             </div>
                         </div>
                     </div>
@@ -116,7 +93,7 @@
                         <div class="col-sm-9">
                             <input type="date" class="form-control user-input" name="dob" id="dob" ng-model="dob" required>
                             <div ng-show="form.$submitted || form.dob.$touched">
-                                <div ng-show="form.dob.$error.required">This field is required</div>
+                                <div class="error-msg" ng-show="form.dob.$error.required">This field is required</div>
                             </div>
                         </div>
                     </div>
@@ -130,8 +107,8 @@
                                 <option>Female</option>
                                 <option>Other</option>
                             </select>
-                            <div ng-show="form.$submitted || form.dob.$touched">
-                                <div ng-show="form.dob.$error.required">This field is required</div>
+                            <div ng-show="form.$submitted || form.gender.$touched">
+                                <div class="error-msg" ng-show="form.gender.$error.required">This field is required</div>
                             </div>
                         </div>
                     </div>

@@ -10,11 +10,6 @@ label {
     font-weight: 600;
 }
 
-.error {
-    color: red;
-    font-weight: 600;
-}
-
 .form-body {
     background-color: rgb(122, 168, 184);
     padding: 0 5%;
@@ -38,8 +33,7 @@ label {
 .nav-item {
     margin: 5px;
 }
-.navbar-dark .navbar-nav .nav-link {
-    
-    color: #fff;
-    
+
+.error-msg {
+    color : red;
 }
