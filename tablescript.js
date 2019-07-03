@@ -45,14 +45,16 @@ app.controller('UserController', ['$scope', 'getLocalStorage', function ($scope,
     $scope.addUser = function () {    
         $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': $scope.dob,'gender': $scope.gender});    
         getLocalStorage.updateUser($scope.user);    
-        $scope.firstName = '';
-        $scope.lastName = '';
-        $scope.mobile = '';
-        $scope.email = '';
-        $scope.password = '';    
-        $scope.dob = '';    
-        $scope.gender = '';    
-        $scope.count = $scope.user.length;    
+        // $scope.firstName = '';
+        // $scope.lastName = '';
+        // $scope.mobile = '';
+        // $scope.email = '';
+        // $scope.password = '';    
+        // $scope.dob = '';    
+        // $scope.gender = '';    
+        // $scope.count = $scope.user.length;  
+        $scope.ShowSuccessMessage=true;  
+        
     };    
         
     //Delete User - Using AngularJS splice to remove the emp row from the User list    
