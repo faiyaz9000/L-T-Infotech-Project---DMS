@@ -57,7 +57,7 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
         // $window.alert('Registration Successful');
         // $location.path('/register.html');
 
-        $window.location.href= 'Login.html';
+        $window.location.href= 'register.html';
         
     };    
 

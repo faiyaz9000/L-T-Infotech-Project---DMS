@@ -1,16 +1,15 @@
 body{
     background-color: rgb(186, 212, 221);
 }
-.row{
+ .row{
     margin-right: 10px;
-    margin-left: 80px;
-    margin-top: -70px; 
-}
+    margin-left: 10px;
+    margin-top: 20px; 
+} 
 .container-fluid {
     padding: 0;
 }
 .form-body{
-    margin:10% 0;
     background-color: rgb(122, 168, 184);
     box-shadow: 2px 2px 15px 7px rgb(59, 117, 136);
 }
@@ -27,7 +26,7 @@ body{
     margin:12% 0;
 }
 
-.error{
+.error-msg{
     color: red;
     font-weight: 600;
 }
