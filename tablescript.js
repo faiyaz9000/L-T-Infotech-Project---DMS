@@ -45,41 +45,27 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     $scope.addUser = function () {    
         $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': $scope.dob,'gender': $scope.gender});    
         getLocalStorage.updateUser($scope.user);    
-        // $scope.firstName = '';
-        // $scope.lastName = '';
-        // $scope.mobile = '';
-        // $scope.email = '';
-        // $scope.password = '';    
-        // $scope.dob = '';    
-        // $scope.gender = '';    
-        // $scope.count = $scope.user.length;  
-        // $scope.ShowSuccessMessage=true;  
-        // $window.alert('Registration Successful');
-        // $location.path('/register.html');
-
+        
         $window.location.href= 'register.html';
         
     };    
 
 
-    $scope.checkUser = function (emailValue) {
+    $scope.checkUser = function () {
 
         var data = JSON.parse(localStorage.getItem("user"));
+          
+        var findUser = data.filter(function(obj) {
+            return obj.email === $scope.email && obj.password === $scope.password;
+        });        
 
-        var found = data.find(function(element) {
-            return element.email === emailValue;
-        });
-        
-        console.log(data[email]);
+        if(findUser.length == 0){
+            $window.alert('Invalid email or password');
+            $window.location.href= 'login.html';
 
-        // $window.alert(found);
-
-        // if($scope.email == 'some@user.com'){
-        //     $window.alert('if working well');
-        // }
-        // else{
-        //     $window.alert('if not working');
-        // }
+        }else{
+            $window.location.href= 'profile.html';
+        }
     };
         
     //Delete User - Using AngularJS splice to remove the emp row from the User list    
