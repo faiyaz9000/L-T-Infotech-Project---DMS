@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(186, 212, 221);
+    background-color: rgb(208, 227, 240);
 }
  .row{
     margin-right: 10px;
@@ -10,8 +10,8 @@ body{
     padding: 0;
 }
 .form-body{
-    background-color: rgb(122, 168, 184);
-    box-shadow: 2px 2px 15px 7px rgb(59, 117, 136);
+    background-color: rgb(243, 248, 250);
+    box-shadow: 2px 2px 15px 7px rgb(189, 191, 192);
 }
 
 .form-header{
