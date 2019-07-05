@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(229, 237, 243);
+}
+ .row{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px; 
+} 
+.container-fluid {
+    padding: 0;
+}
+.jumbotron{
+    margin-bottom:0px; 
+    background-color: rgb(207, 220, 223);
+    font-family:  Verdana, Geneva, sans-serif;
+    position: relative;
+    animation-name: moveit;
+    animation-duration: 2s;
+    transition: background 2s ease-in 0s;
+}
+@keyframes moveit {
+    from {left: 0;}
+    to {left: 2%;}
+}
+
+@keyframes movert{
+    from {right: 0;}
+    to {right: 3%}
+}
+.navbar-nav{
+    position: relative;
+    animation-name: movert;
+    animation-duration: 2s;
+}
+.jumbotron:hover{
+    background-color: rgb(180, 184, 185);
+}
