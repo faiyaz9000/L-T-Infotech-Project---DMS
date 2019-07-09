@@ -43,34 +43,42 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     //Reset the AngularJS User scope    
     //Update the Count    
     $scope.addUser = function () {    
-        $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': $scope.dob,'gender': $scope.gender});    
+        $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': $scope.dob,'gender': $scope.gender });    
         getLocalStorage.updateUser($scope.user);    
-        
+    
         $window.location.href= 'login.html';
         
     };    
 
-
+    //chechUser function to check if user is already registered or not
     $scope.checkUser = function () {
 
         var data = JSON.parse(localStorage.getItem("user"));
-
-        var loggedIn = 0;
-          
+        
         var findUser = data.filter(function(obj) {
             return obj.email === $scope.email && obj.password === $scope.password;
         });        
 
         if(findUser.length == 0){
-            $window.location.href= 'login.html';
-
+            document.getElementById("invalid").style.display = "initial";
         }else{
-            loggedIn = 1;
             $window.location.href= 'profile.html';
         }
     };
 
+    $scope.init = function () {
         
+    };
+    
+    //alertClose to reload login page after invalid login
+    $scope.alertClose = function () {
+        $window.location.href= 'login.html';
+    }
+
+    $scope.logout = function () {
+        $window.location.href= 'login.html';
+    }
+
     //Delete User - Using AngularJS splice to remove the emp row from the User list    
     //All the Update User to update the locally stored User List    
     //Update the Count    

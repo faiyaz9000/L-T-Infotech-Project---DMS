@@ -16,7 +16,7 @@
     <script src="tablescript.js"></script>
 </head>
 <body ng-app="User">
-    <div class="container-fluid" ng-controller="UserController">
+    <div class="container-fluid" ng-controller="UserController" data-ng-init="init()">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
             <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                     <div class="dropdown-menu bg-success">
                       <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
                       <a class="dropdown-item bg-success" href="register.html">Register</a>
-                      <a class="dropdown-item bg-success" href="Login.html">Logout</a>
+                      <a class="dropdown-item bg-success" ng-click="logout()">Logout</a>
                       
                     </div>
                 </li>

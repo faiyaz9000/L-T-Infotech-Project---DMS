@@ -41,9 +41,9 @@
                     <p>Kindly use your email and password to login</p>
                 </div>
 
-                <div class="alert alert-danger alert-dismissible show" role="alert">
+                <div id="invalid" class="alert alert-danger alert-dismissible show" role="alert" style="display: none">
                     Incorrect email or password.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="alertClose()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -78,6 +78,7 @@
                         <a href="login.html" class="btn btn-secondary">Forget Password?</a>
                         <br><br>
                         <a href="register.html" class="btn btn-primary">Register</a>
+
                     </div>
 
                     
@@ -88,6 +89,9 @@
             <div class="col-sm-4"></div>
         </div>
     </div>
+
+   
     
+
 </body>
 </html>
