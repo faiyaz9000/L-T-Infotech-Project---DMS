@@ -1,10 +1,11 @@
 body{
     background-color: rgb(208, 227, 240);
+    font-family: Poppins;
 }
  .row{
     margin-right: 10px;
     margin-left: 10px;
-    margin-top: 20px; 
+    margin-top: 10%; 
 } 
 .container-fluid {
     padding: 0;
@@ -40,8 +41,14 @@ body{
     margin: 5px;
 }
 
-.navbar-dark .navbar-nav .nav-link {
+.navbar-text{
+   
+    font-size: 20px;
     
-    color: #fff;
-    
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgb(46, 59, 87);
 }

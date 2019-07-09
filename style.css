@@ -1,11 +1,11 @@
 body {
     background-color: rgb(208, 227, 240);
-
+    font-family: Poppins;
 }
 .row{
     margin-right: 10px;
     margin-left: 20px;
-    margin-top: 20px; 
+    margin-top: 40px; 
 }
 .container-fluid {
     padding: 0;
@@ -23,6 +23,7 @@ label {
     background-color: rgb(243, 248, 250);
     padding: 0 5%;
     box-shadow: 2px 2px 15px 7px rgb(189, 191, 192);
+    margin-top:15px;
 }
 
 .register-btn {
@@ -33,7 +34,12 @@ label {
     height: 50px;
     width: 50px;
 }
-
+.navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgb(46, 59, 87);
+}
 .nav-item {
     margin: 5px;
 }
@@ -44,5 +50,10 @@ label {
 .navbar-dark .navbar-nav .nav-link {
     
     color: #fff;
+    
+}
+.navbar-text{
+   
+    font-size: 20px;
     
 }

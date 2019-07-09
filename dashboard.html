@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
     <link rel="stylesheet" href="dash.css">
     <title>Dashboard</title>
     <link rel="icon" href="doc-icon.png">
@@ -17,7 +23,7 @@
 </head>
 <body ng-app="User">
     <div class="container-fluid" ng-controller="UserController" data-ng-init="init()">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
             <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,9 +31,13 @@
             <div class="collapse navbar-collapse " id="collapse_target">
 
             <a class="navbar-brand" href="Homepage.html"><img class="logoimg" src="logo.gif"></a>
-            <span class="navbar-text">Welcome to Document Management System</span>
+            <span class="navbar-text" style="color: antiquewhite"> Welcome to Document Management System</span>
             
             <ul class="navbar-nav ml-auto">
+                    <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                    </form> 
                 <div class="btn btn-group btn-success">
                 
                 <li class=" nav-item dropdown">
@@ -90,6 +100,7 @@
                 
             </div>
         </div>
+        
 
     </div> 
 

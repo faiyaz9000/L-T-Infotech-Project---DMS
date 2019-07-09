@@ -1,4 +1,5 @@
 .jumbotron{
+    margin-top: 5%;
     background-color: rgb(243, 243, 243);
 }
 .logoimg{
@@ -13,8 +14,29 @@
 .container-fluid {
     padding: 0;
 }
-.navbar-dark .navbar-nav .nav-link {
-    
-    color: #fff;
-    
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgb(46, 59, 87);
+}
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+body{
+    background-color: rgb(229, 237, 243);
+    font-family: Poppins;
+}
+.navbar-text{
+    font-size: 20px;
+}
+.form-inline{
+    margin-right: 20px;
 }

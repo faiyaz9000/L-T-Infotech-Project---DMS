@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <link rel="icon" href="doc-icon.png">
-
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,7 +22,7 @@
     <div class="container-fluid" ng-controller="UserController">
            
         <!-- <div class="alert alert-success"> Registration successful. </div> -->
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
             <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,10 +30,12 @@
             <div class="collapse navbar-collapse " id="collapse_target">
 
             <a class="navbar-brand" href="Homepage.html"><img class="logoimg" src="logo.gif"></a>
-            <span class="navbar-text">Welcome to Document Management System</span>
+            <span class="navbar-text" style="color: antiquewhite;">Welcome to Document Management System</span>
             
-            
-        
+            <div class="btn btn-group btn-success ml-auto">
+                    
+                    <a class="btn btn-success" href="login.html">Login</a>
+        </div>
             </div>
         </nav>
 
@@ -158,9 +160,6 @@
                         </div>
                     </div>
                     
-                    <div class="text-center">
-                    <a href="Login.html" class="btn btn-success">Login</a>
-                    </div><br>
                 </form>
 
             </div>

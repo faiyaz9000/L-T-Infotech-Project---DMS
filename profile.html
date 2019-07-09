@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Profile</title>
     <link rel="icon" href="doc-icon.png">
+    
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -18,9 +20,9 @@
     <link rel="stylesheet" href="stylel.css">
     <script src="tablescript.js"></script>
 </head>
-<body ng-app="User">
-    <div class="container-fluid text-center" ng-controller="UserController" data-ng-init="init()">
-            <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+<body>
+    <div class="container-fluid text-center">
+            <nav class="navbar navbar-expand-md navbar-dark sticky-top">
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -28,7 +30,7 @@
                     <div class="collapse navbar-collapse " id="collapse_target">
         
                     <a class="navbar-brand" href="Homepage.html"><img class="logoimg" src="logo.gif"></a>
-                    <span class="navbar-text">Welcome to Document Management System</span>
+                    <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
                     
                     <ul class="navbar-nav ml-auto">
                         <div class="btn btn-group btn-success">
@@ -38,9 +40,9 @@
                               My Profile
                             </a>
                             <div class="dropdown-menu bg-success">
-                                <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
-                                <a class="dropdown-item bg-success" href="register.html">Register</a>
-                                <a class="dropdown-item bg-success" href="login.html">Logout</a>
+                              <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
+                              <a class="dropdown-item bg-success" href="register.html">Register</a>
+                              <a class="dropdown-item bg-success" href="login.html">Logout</a>
                               
                             </div>
                         </li>
@@ -49,7 +51,7 @@
                 
                     </div>
                 </nav>
-                <div class="jumbotron" style="margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
+                <div class="jumbotron" style=" margin-top:5%; margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
                     <h3 class="text-center">Welcome, You are successfully logged in...</h3>
     </div>
 </body>

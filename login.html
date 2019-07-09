@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="icon" href="doc-icon.png">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -18,7 +19,7 @@
 </head>
 <body ng-app="User">
     <div class="container-fluid text-center" ng-controller="UserController">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -26,8 +27,11 @@
                 <div class="collapse navbar-collapse " id="collapse_target">
     
                 <a class="navbar-brand" href="Homepage.html"><img class="logoimg" src="logo.gif"></a>
-                <span class="navbar-text">Welcome to Document Management System</span>
-            
+                <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
+                <div class="btn btn-group btn-primary ml-auto">
+                    
+                        <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
                 </div>
         </nav>
         
@@ -76,8 +80,7 @@
                     <div class="login-btn">
                         <input type="submit" name="login" id="login" value="Login" ng-disabled="form.$invalid" ng-click="checkUser()" class="btn btn-success">
                         <a href="login.html" class="btn btn-secondary">Forget Password?</a>
-                        <br><br>
-                        <a href="register.html" class="btn btn-primary">Register</a>
+                      
 
                     </div>
 
