@@ -45,7 +45,9 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     $scope.addUser = function () {    
         $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': $scope.dob,'gender': $scope.gender });    
         getLocalStorage.updateUser($scope.user);    
-    
+        
+        localStorage.setItem('loggedIn',0);
+
         $window.location.href= 'login.html';
         
     };    
@@ -54,6 +56,7 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     $scope.checkUser = function () {
 
         var data = JSON.parse(localStorage.getItem("user"));
+
         
         var findUser = data.filter(function(obj) {
             return obj.email === $scope.email && obj.password === $scope.password;
@@ -62,12 +65,16 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
         if(findUser.length == 0){
             document.getElementById("invalid").style.display = "initial";
         }else{
+            localStorage.setItem('loggedIn',1);
             $window.location.href= 'profile.html';
         }
     };
 
     $scope.init = function () {
-        
+        var test = localStorage.getItem('loggedIn');
+        if(test == 0){
+            $window.location.href= 'login.html';
+        }
     };
     
     //alertClose to reload login page after invalid login
@@ -76,6 +83,7 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     }
 
     $scope.logout = function () {
+        localStorage.setItem('loggedIn',0);
         $window.location.href= 'login.html';
     }
 
