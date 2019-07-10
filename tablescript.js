@@ -73,6 +73,7 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     $scope.init = function () {
         var test = localStorage.getItem('loggedIn');
         if(test == 0){
+            $window.alert('You are logged out, please login to continue');
             $window.location.href= 'login.html';
         }
     };
@@ -84,7 +85,7 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
 
     $scope.logout = function () {
         localStorage.setItem('loggedIn',0);
-        $window.location.href= 'login.html';
+        //$window.location.href= 'login.html';
     }
 
     //Delete User - Using AngularJS splice to remove the emp row from the User list    
