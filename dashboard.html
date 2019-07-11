@@ -19,7 +19,10 @@
     <title>Dashboard</title>
     <link rel="icon" href="doc-icon.png">
 
+    <script src="md5.js"></script>
+
     <script src="tablescript.js"></script>
+
 </head>
 <body ng-app="User">
     <div class="container-fluid" ng-controller="UserController" data-ng-init="init()">
@@ -84,7 +87,7 @@
                             </td>
                             <td>{{ user.email }}  
                             </td>
-                            <td>{{ user.password }}  
+                            <td>{{ user.encode }}
                             </td>
                             <td>{{ user.dob }}  
                             </td>

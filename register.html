@@ -15,7 +15,9 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-     <script src="tablescript.js"></script>
+    <script src="md5.js"></script>
+
+    <script src="tablescript.js"></script>
 
 </head>
 <body ng-app="User">
@@ -95,7 +97,7 @@
                     <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control user-input" ng-model="password" ng-minlength="8" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control user-input" ng-model="password" ng-minlength="8" name="password" id="inPass" placeholder="Password" required>
 
                             <div ng-show="form.$submitted || form.password.$touched">
                                 <div class="error-msg" ng-show="form.password.$error.required">This field is required</div>
@@ -131,7 +133,7 @@
                     </div>
 
                     <div class="register-btn">
-                        <input type="submit" class="btn btn-block btn-primary" data-toggle="modal" data-target="#reg-modal"  ng-disabled="form.$invalid" value="Register">
+                        <input type="submit" class="btn btn-block btn-primary" data-toggle="modal" data-target="#reg-modal"  id="reg-btn" onclick="dateStore()" ng-disabled="form.$invalid"  value="Register">
                     </div>
                     
                     <div class="modal" id="reg-modal">
@@ -149,9 +151,7 @@
                                 
                                 <!-- Modal footer -->
                                
-                                <div class="modal-footer">      
-                                 
-                                    
+                                <div class="modal-footer">                      
                                     <button type="button" class="btn btn-info text-center margin-auto" data-dismiss="modal" ng-click="addUser()">OK</button>
                                 </div>
                             </div>
@@ -169,6 +169,29 @@
              </div>
         </div>
     </div>
+
+    <script>
+        function dateStore() {
+            var date = document.getElementById("dob");
+            localStorage.setItem('date',date.value);
+        }
+
+        (function () {
+            'use strict'
+
+            var input = document.getElementById('inPass')
+            document.getElementById('reg-btn').addEventListener(
+                'click',
+                function (event) {
+                event.preventDefault()
+
+                var test = md5(input.value);
+                localStorage.setItem('encode',test);
+                }
+            )
+        }())
+        
+    </script>
 
 </body>
 </html>

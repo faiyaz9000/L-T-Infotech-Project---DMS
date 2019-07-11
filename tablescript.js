@@ -43,7 +43,10 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     //Reset the AngularJS User scope    
     //Update the Count    
     $scope.addUser = function () {    
-        $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': $scope.dob,'gender': $scope.gender });    
+
+        var test = localStorage.getItem('encode');
+        var date = localStorage.getItem('date');
+        $scope.user.push({ 'firstName': $scope.firstName, 'lastName': $scope.lastName, 'mobile': $scope.mobile, 'email': $scope.email,'password': $scope.password,'dob': date,'gender': $scope.gender,'encode':test });    
         getLocalStorage.updateUser($scope.user);    
         
         localStorage.setItem('loggedIn',0);

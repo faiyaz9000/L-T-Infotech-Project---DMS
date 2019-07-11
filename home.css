@@ -19,7 +19,6 @@ body{
 .jumbotron{
     margin-bottom:0px; 
     background-color:rgb(98, 177, 241);
-    
     position: relative;
     animation-name: moveit;
     animation-duration: 2s;
