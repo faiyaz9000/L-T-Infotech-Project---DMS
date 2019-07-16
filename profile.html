@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <link rel="stylesheet" href="stylel.css">
+    <link rel="stylesheet" href="profile.css">
     <script src="tablescript.js"></script>
 </head>
 <body ng-app="User" id="profbody">
@@ -55,32 +55,67 @@
                 <div class="jumbotron" style=" margin-top:5%; margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
                     <h2 class="text-center">Welcome, You are successfully logged in...</h2>
                 </div>
+
                 <div class="row" id="profrow">
-            <div class="col-sm-4"></div>
+                     <div class="col-sm-4"></div>
                    
-    		<div class="col-sm-4" id="pcard">
+                    <div class="col-sm-4" id="pcard">
                 
-                    <h4 class="mt-3 w-100 float-left text-center"><strong>My Information</strong></h4>
-    		    <div class="card profile-card-3">
-    		        <div class="background-block">
-    		          
-    		        </div>
-    		        
-                    <br>
-    		        <div class="card-content myprofc">
-                    <h5>First Name</h5>
-                    <h5>Last Name</h5>
-                    <h5>Mobile No</h5>
-                    <h5>Email</h5>
-                    <h5>DOB</h5>
-                    <h5>Gender</h5>
+                        <h4 class="mt-3 w-100 float-left text-center"><strong>My Information</strong></h4>
+                        <div class="card profile-card-3">
+                        <div class="background-block">
+                        
+                        </div>
+                        
+                        <br>
+                        <div class="card-content myprofc">
+                            <div class="row">
+                                <h5 class="col">First Name</h5>
+                                <p class="col user-info" id="inFirst"></p>
+                            </div>
+                            <div class="row">
+                                <h5 class="col">Last Name</h5>
+                                <p class="col user-info" id="inLast"></p>
+                            </div>
+                            <div class="row">
+                                <h5 class="col">Mobile</h5>
+                                <p class="col user-info" id="inMobile"></p>
+                            </div>
+                            <div class="row">
+                                <h5 class="col">Email</h5>
+                                <p class="col user-info" id="inEmail"></p>
+                            </div>
+                            <div class="row">
+                                <h5 class="col">Password</h5>
+                                <p class="col user-info" id="inPass"></p>
+                            </div>
+                            <div class="row">
+                                <h5 class="col">DOB</h5>
+                                <p class="col user-info" id="inDob"></p>
+                            </div>
+                            <div class="row">
+                                <h5 class="col">Gender</h5>
+                                <p class="col user-info" id="inGender"></p>
+                            </div>
+                        
+                        </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-4"></div>
-                </div>
-               
-                
-                 </div>
+                    <div class="col-sm-4"></div>
+                </div>            
+    </div>
+
+    <script>
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        document.getElementById("inFirst").innerHTML = currentUser[0].firstName;
+        document.getElementById("inLast").innerHTML = currentUser[0].lastName;
+        document.getElementById("inMobile").innerHTML = currentUser[0].mobile;
+        document.getElementById("inEmail").innerHTML = currentUser[0].email;
+        document.getElementById("inPass").innerHTML = currentUser[0].password;
+        document.getElementById("inDob").innerHTML = currentUser[0].dob;
+        document.getElementById("inGender").innerHTML = currentUser[0].gender;
+
+    </script>
 </body>
 </html>

@@ -60,10 +60,11 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
 
         var data = JSON.parse(localStorage.getItem("user"));
 
-        
         var findUser = data.filter(function(obj) {
             return obj.email === $scope.email && obj.password === $scope.password;
-        });        
+        });
+
+        localStorage.setItem('currentUser',JSON.stringify(findUser));
 
         if(findUser.length == 0){
             document.getElementById("invalid").style.display = "initial";
@@ -76,8 +77,16 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     $scope.init = function () {
         var test = localStorage.getItem('loggedIn');
         if(test != 1){
-            $window.alert('Error while loading.. Please login to continue');
+            $window.alert('Error while loading... Please login to continue');
             $window.location.href= 'login.html';
+        }
+    };
+
+    $scope.errorLog = function () {
+        var test = localStorage.getItem('loggedIn');
+        if(test == 1){
+            $window.alert('You are already logged in, please log out to continue...');
+            $window.location.href= 'profile.html';
         }
     };
     
