@@ -75,8 +75,8 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
 
     $scope.init = function () {
         var test = localStorage.getItem('loggedIn');
-        if(test == 0){
-            $window.alert('You are logged out, please login to continue');
+        if(test != 1){
+            $window.alert('Error while loading.. Please login to continue');
             $window.location.href= 'login.html';
         }
     };
