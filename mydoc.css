@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(208, 227, 240);
+    font-family: Poppins;
+}
+.row{
+    margin-top: 100px;
+}
+.container-fluid {
+    padding: 0;
+}
+.logoimg{
+    height: 50px;
+    width: 50px;
+}
+.nav-item {
+    margin: 5px;
+}
+
+.navbar-text{
+    font-size: 20px; 
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgb(46, 59, 87);
+}

@@ -42,7 +42,7 @@
                             <div class="dropdown-menu bg-success">
                                 
                               <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
-                              <a class="dropdown-item bg-success" href="register.html">Register</a>
+                              <a class="dropdown-item bg-success" href="register.html">Add User</a>
                               <a class="dropdown-item bg-success" href="login.html" ng-click="logout()">Logout</a>
                               
                             </div>
@@ -85,10 +85,7 @@
                                 <h5 class="col">Email</h5>
                                 <p class="col user-info" id="inEmail"></p>
                             </div>
-                            <div class="row">
-                                <h5 class="col">Password</h5>
-                                <p class="col user-info" id="inPass"></p>
-                            </div>
+                            
                             <div class="row">
                                 <h5 class="col">DOB</h5>
                                 <p class="col user-info" id="inDob"></p>
@@ -112,7 +109,6 @@
         document.getElementById("inLast").innerHTML = currentUser[0].lastName;
         document.getElementById("inMobile").innerHTML = currentUser[0].mobile;
         document.getElementById("inEmail").innerHTML = currentUser[0].email;
-        document.getElementById("inPass").innerHTML = currentUser[0].password;
         document.getElementById("inDob").innerHTML = currentUser[0].dob;
         document.getElementById("inGender").innerHTML = currentUser[0].gender;
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Documents | DMS</title>
+    <link rel="icon" href="doc-icon.png">
+    
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="mydoc.css">
+    <!-- <script src="tablescript.js"></script> -->
+</head>
+<body ng-app="User">
+    <div class="container-fluid text-center" ng-controller="UserController">
+
+            <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse " id="collapse_target">
+        
+                    <a class="navbar-brand" href="index.html"><img class="logoimg" src="logo.gif"></a>
+                    <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
+                    
+                    <ul class="navbar-nav ml-auto">
+                        <div class="btn btn-group btn-success">
+                        
+                        <li class=" nav-item dropdown">
+                            <a class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                              My Profile
+                            </a>
+                            <div class="dropdown-menu bg-success">
+                                
+                              <a class="dropdown-item bg-success" href="profile.html">My Info</a>
+                              <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
+                              <a class="dropdown-item bg-success" href="register.html">Add User</a>
+                              <a class="dropdown-item bg-success" href="login.html" ng-click="logout()">Logout</a>
+                              
+                            </div>
+                        </li>
+                    </div>
+                    </ul>
+                
+                    </div>
+
+                </nav>
+              <div class="row">
+                  <div class="col">
+
+                      <h3 class="text-center">Upload Documents</h3>
+                  </div>
+                  </div>
+    </div>
+        
+</body>
+</html>
