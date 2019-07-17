@@ -1,0 +1,21 @@
+html inside ul
+ <div class="user-name">
+                            <i class="fa fa-user" style="font-size:20px; margin-right:5px; "></i>
+                            <span  id="user-fname"></span>
+                            <span  id="user-lname"></span>
+                        </div>
+
+
+
+javascript
+ document.getElementById("user-fname").innerHTML = currentUser[0].firstName;
+        document.getElementById("user-lname").innerHTML = currentUser[0].lastName;
+
+
+
+css
+.user-name {
+    margin-top: 25px;
+    margin-right: 25px;
+    color:rgba(255, 255, 255, 0.753);
+}
