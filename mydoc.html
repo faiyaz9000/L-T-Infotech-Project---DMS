@@ -60,23 +60,27 @@
                 
                     </div>
                 </nav>
+
                 <div class="jumbotron" style=" margin-top:5%; margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
                     <h2 class="text-center">Upload Documents</h2>
                 </div>
+
                 <div class="row">
                     <div class="col-sm-4"></div>
 
-                    <div class="col-sm-4 form-group">
-                            <label id="hl">You can upload your files here</label>
-                            <input type="file" id="BSbtninfo" multiple>
+                    <div class="col-sm-4 form-group">                   
+                        <label id="hl">You can upload your files here</label>
+                        <input type="file" id="input-file" onchange="encodeImageFileAsURL(this)" multiple>
+                        <img src="" id="img-show">
+                        <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteImage()">Delete Image</button>
                     </div>
 
-                    <div class="col-sm-4"></div>
+                <div class="col-sm-4"></div>
 
                 </div>
 </div>
-<script>
-        $('#BSbtninfo').filestyle({
+    <script>
+        $('#input-file').filestyle({
             buttonName : 'btn-info',
             buttonText : ' Select a File'
         });       
@@ -84,7 +88,31 @@
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         
         document.getElementById("user-fname").innerHTML = currentUser[0].firstName;
-        document.getElementById("user-lname").innerHTML = currentUser[0].lastName;                 
-</script>
+        document.getElementById("user-lname").innerHTML = currentUser[0].lastName;  
+
+        function encodeImageFileAsURL(element) {
+            var file = element.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                localStorage.setItem('image',reader.result);
+                // console.log('RESULT', reader.result)
+            }
+            reader.readAsDataURL(file);
+            window.location = "mydoc.html";
+        }
+        document.getElementById("img-show").src = localStorage.getItem('image');      
+
+        function deleteImage() {
+            localStorage.setItem('image',0); 
+            window.location = "mydoc.html";
+        }
+
+        var myImage = localStorage.getItem('image');
+
+        if(myImage == 0){
+            document.getElementById("img-show").style.display = "none";
+        }
+
+    </script>
 </body>
 </html>

@@ -28,7 +28,7 @@ var app = angular.module('User', ['storageService']);
   
 // Create the Controller UserController  
 app.controller('UserController', ['$scope','$window', 'getLocalStorage', function ($scope, $window,getLocalStorage) {    
-    $scope.appTitle = "LocalStorage Demo";    
+    $scope.appTitle = "Document Management System";    
     $scope.appHeadline = "AngularJS and HTML5";    
   
     //Read the User List from LocalStorage    
