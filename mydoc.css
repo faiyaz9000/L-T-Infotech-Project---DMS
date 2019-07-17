@@ -2,8 +2,9 @@ body{
     background-color: rgb(208, 227, 240);
     font-family: Poppins;
 }
-.row{
-    margin-top: 100px;
+.row {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .container-fluid {
     padding: 0;
@@ -24,4 +25,22 @@ body{
     width: 100%;
     top: 0;
     background-color: rgb(46, 59, 87);
+}
+.main-head {
+    margin-top: 3%;
+}
+.row{
+    margin-top: 0;
+}
+#BSbtninfo{
+    width: 0%;
+}
+#hl{
+    font-size: 25px;
+}
+
+.user-name {
+    margin-top: 25px;
+    margin-right: 25px;
+    color:rgba(255, 255, 255, 0.753);
 }

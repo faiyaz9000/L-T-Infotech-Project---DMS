@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Documents | DMS</title>
+    <title>Upload | DMS</title>
     <link rel="icon" href="doc-icon.png">
     
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -15,14 +15,15 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.min.js"> </script>
+   
 
     <link rel="stylesheet" href="mydoc.css">
-    <!-- <script src="tablescript.js"></script> -->
+    <script src="tablescript.js"></script>
 </head>
-<body ng-app="User">
-    <div class="container-fluid text-center" ng-controller="UserController">
-
+<body ng-app="User" id="profbody">
+    <div class="container-fluid text-center" ng-controller="UserController" data-ng-init="init()">
             <nav class="navbar navbar-expand-md navbar-dark sticky-top">
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                         <span class="navbar-toggler-icon"></span>
@@ -34,6 +35,11 @@
                     <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
                     
                     <ul class="navbar-nav ml-auto">
+                            <div class="user-name">
+                                    <i class="fa fa-user" style="font-size:20px; margin-right:5px; "></i>
+                                    <span  id="user-fname"></span>
+                                    <span  id="user-lname"></span>
+                                </div>
                         <div class="btn btn-group btn-success">
                         
                         <li class=" nav-item dropdown">
@@ -53,15 +59,32 @@
                     </ul>
                 
                     </div>
-
                 </nav>
-              <div class="row">
-                  <div class="col">
+                <div class="jumbotron" style=" margin-top:5%; margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
+                    <h2 class="text-center">Upload Documents</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
 
-                      <h3 class="text-center">Upload Documents</h3>
-                  </div>
-                  </div>
-    </div>
+                    <div class="col-sm-4 form-group">
+                            <label id="hl">You can upload your files here</label>
+                            <input type="file" id="BSbtninfo" multiple>
+                    </div>
+
+                    <div class="col-sm-4"></div>
+
+                </div>
+</div>
+<script>
+        $('#BSbtninfo').filestyle({
+            buttonName : 'btn-info',
+            buttonText : ' Select a File'
+        });       
+
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         
+        document.getElementById("user-fname").innerHTML = currentUser[0].firstName;
+        document.getElementById("user-lname").innerHTML = currentUser[0].lastName;                 
+</script>
 </body>
 </html>
