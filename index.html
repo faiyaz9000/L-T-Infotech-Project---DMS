@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home | DMS</title>
     <link rel="icon" href="doc-icon.png">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -85,7 +85,7 @@
                         </a>
                     </div>
                 <div class="jumbotron">
-                    <h2 class="text-center" style="font-size: 43px; "> Document Management System</h2><br>
+                    <h2 class="text-center" style="font-size: 43px; font-family: 'Montserrat', sans-serif;"> Document Management System</h2><br>
                     <p>
                     <ul class="jmtext">
                         <li>A document management system is a system used to track, manage and store documents and reduce paper.</li>
@@ -141,7 +141,7 @@
         <footer class=" page-footer font-small teal pt-4">
             <div class="text-center text-md-left">
                 <div class="row">
-                    <div class="col-md-6 mt-md-0 mt-3">
+                    <div class="col-md-4 mt-md-0 mt-3">
               <h5 class="text-uppercase font-weight-bold ">Locations</h5>
               
               <ul>
@@ -154,7 +154,7 @@
             
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
-            <div class="col-md-6 mb-md-0 mb-3">
+            <div class="col-md-4 mb-md-0 mb-3">
             <h5 class="text-uppercase font-weight-bold">Contact</h5>
             <i>
                 Visit Us at:<br>
@@ -164,13 +164,34 @@
                 Navi Mumbai-400706
             </i>
             </div>
-          </div>
+            <hr class="clearfix w-100 d-md-none pb-3">
+        <div class="col-md-4 mt-md-0 mt-3 ">
+        <h5 class="text-uppercase font-weight-bold">Locate us</h5> 
+              <div id="map"></div> 
+              <script> 
+              function initMap() { 
+                var uluru = {lat: 19.000405, lng: 73.104167}; 
+                var map = new google.maps.Map(document.getElementById('map'), { 
+                zoom: 16, 
+                center: uluru 
+                }); 
+                var marker = new google.maps.Marker({ 
+                position: uluru, 
+                map: map 
+                }); 
+              } 
+              </script> 
+          <script async defer src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyC1LausemClKFEUPAucXnE_UUOAtboTlAw&callback=initMap"> </script>
         </div>
+      </div>
+      
+    </div>
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
           <a href="https://www.documentms.tk"> www.documentms.tk</a>
         </div>
-      </footer>
-    </div>
-                
+              
+       </footer>
+   </div>
+                      
 </body>
 </html>
