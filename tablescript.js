@@ -58,19 +58,24 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     //chechUser function to check if user is already registered or not
     $scope.checkUser = function () {
 
-        var data = JSON.parse(localStorage.getItem("user"));
-
-        var findUser = data.filter(function(obj) {
-            return obj.email === $scope.email && obj.password === $scope.password;
-        });
-
-        localStorage.setItem('currentUser',JSON.stringify(findUser));
-
-        if(findUser.length == 0){
+        if(localStorage.length == 0){
             document.getElementById("invalid").style.display = "initial";
-        }else{
-            localStorage.setItem('loggedIn',1);
-            $window.location.href= 'profile.html';
+        }
+        else{
+            var data = JSON.parse(localStorage.getItem("user"));
+    
+            var findUser = data.filter(function(obj) {
+                return obj.email === $scope.email && obj.password === $scope.password;
+            });
+    
+            localStorage.setItem('currentUser',JSON.stringify(findUser));
+    
+            if(findUser.length == 0){
+                document.getElementById("invalid").style.display = "initial";
+            }else{
+                localStorage.setItem('loggedIn',1);
+                $window.location.href= 'profile.html';
+            }
         }
     };
 
@@ -93,12 +98,14 @@ app.controller('UserController', ['$scope','$window', 'getLocalStorage', functio
     //alertClose to reload login page after invalid login
     $scope.alertClose = function () {
         $window.location.href= 'login.html';
-    }
+    };
 
     $scope.logout = function () {
         localStorage.setItem('loggedIn',0);
         //$window.location.href= 'login.html';
-    }
+    };
+
+    
 
     //Delete User - Using AngularJS splice to remove the emp row from the User list    
     //All the Update User to update the locally stored User List    
