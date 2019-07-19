@@ -24,62 +24,68 @@
 </head>
 <body ng-app="User" id="profbody">
     <div class="container-fluid text-center" ng-controller="UserController" data-ng-init="init()">
-            <nav class="navbar navbar-expand-md navbar-dark sticky-top">
-                    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-        
-                    <div class="collapse navbar-collapse " id="collapse_target">
-        
-                    <a class="navbar-brand" href="index.html"><img class="logoimg" src="logo.gif"></a>
-                    <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
-                    
-                    <ul class="navbar-nav ml-auto">
-                            <div class="user-name">
-                                    <i class="fa fa-user" style="font-size:20px; margin-right:5px; "></i>
-                                    <span  id="user-fname"></span>
-                                    <span  id="user-lname"></span>
-                                </div>
-                        <div class="btn btn-group btn-success">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="collapse_target">
+
+                <a class="navbar-brand" href="index.html"><img class="logoimg" src="logo.gif"></a>
+                <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
+                
+                <ul class="navbar-nav ml-auto">
+                    <div class="user-name">
+                        <i class="fa fa-user" style="font-size:20px; margin-right:5px; "></i>
+                        <span  id="user-fname"></span>
+                        <span  id="user-lname"></span>
+                    </div>
+
+                    <div class="btn btn-group btn-success">
                         
                         <li class=" nav-item dropdown">
                             <a class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                              My Profile
+                                My Profile
                             </a>
                             <div class="dropdown-menu bg-success">
                                 
-                              <a class="dropdown-item bg-success" href="profile.html">My Info</a>
-                              <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
-                              <a class="dropdown-item bg-success" href="register.html">Add User</a>
-                              <a class="dropdown-item bg-success" href="login.html" ng-click="logout()">Logout</a>
-                              
+                                <a class="dropdown-item bg-success" href="profile.html">My Info</a>
+                                <a class="dropdown-item bg-success" href="dashboard.html">Dashboard</a>
+                                <a class="dropdown-item bg-success" href="register.html">Add User</a>
+                                <a class="dropdown-item bg-success" href="login.html" ng-click="logout()">Logout</a>
+                                
                             </div>
                         </li>
                     </div>
-                    </ul>
+                </ul>
+            
+            </div>
+        </nav>
+
+        <div class="jumbotron" style=" margin-top:5%; margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
+            <h2 class="text-center">Upload Documents</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-4 form-group">                   
+                <label id="hl">You can upload your files here</label>
                 
-                    </div>
-                </nav>
 
-                <div class="jumbotron" style=" margin-top:5%; margin-bottom:0px; font-weight: 160px; background-color: rgb(186, 212, 221)">
-                    <h2 class="text-center">Upload Documents</h2>
-                </div>
+                <!-- onchange="encodeImageFileAsURL(this)" multiple -->
+                <input type="file" id="upload1" class="btn btn-default btn-file form-control editField file-upload"readonly>
+                <div class="image"></div>
+                <!-- <img src="" id="tableBanner"> -->
+                <input type="file" id="upload2"class="btn btn-default btn-file form-control editField file-upload" readonly>
+                <div class="image"></div>
+                <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteImage()">Delete</button>
+            </div>
 
-                <div class="row">
-                    <div class="col-sm-4"></div>
-
-                    <div class="col-sm-4 form-group">                   
-                        <label id="hl">You can upload your files here</label>
-                        <input type="file" id="input-file" onchange="encodeImageFileAsURL(this)" multiple>
-                        <img src="" id="img-show">
-                        <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteImage()">Delete Image</button>
-                    </div>
-
-                <div class="col-sm-4"></div>
-
-                </div>
-</div>
-    <script>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <!-- <script>
         $('#input-file').filestyle({
             buttonName : 'btn-info',
             buttonText : ' Select a File'
@@ -113,6 +119,52 @@
             document.getElementById("img-show").style.display = "none";
         }
 
+    </script> -->
+
+    <script>
+        // $('#input-file').filestyle({
+        //       // buttonName : 'btn-info',
+        //      // buttonText : ' Select a File'
+        // });       
+
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        
+        document.getElementById("user-fname").innerHTML = currentUser[0].firstName;
+        document.getElementById("user-lname").innerHTML = currentUser[0].lastName;  
+
+
+        $(document).ready(function() {
+            showImages();
+
+
+            $("body").on("change", ".file-upload", function() {
+                var $input = $(this);
+                var file = $input[0].files[0];
+
+                var reader = new FileReader();
+                reader.onload = function() {
+                var images = JSON.parse(localStorage.getItem('images')) || [];
+                images[$input.index('.file-upload')] = reader.result;
+                localStorage.setItem('images', JSON.stringify(images));
+                showImages(images);
+                }
+                reader.readAsDataURL(file);
+            });
+        });
+
+        function showImages(content) {
+            $('.image').empty();
+            var images = content || JSON.parse(localStorage.getItem('images')) || [];
+            images.forEach(function(image, i) {
+                $('<img />').prop('src', image).appendTo($('.image').eq(i));
+            })
+        }
+
+        function deleteImage() {
+            localStorage.removeItem('images');
+            window.location = "mydoc.html";                
+        }
     </script>
+
 </body>
 </html>
