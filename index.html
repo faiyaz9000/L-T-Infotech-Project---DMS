@@ -147,7 +147,7 @@
                         <div class="thumbnail">
 
                             <img src="registration.png" alt="Registration" style="width: 80%">
-                            <br><br>
+                            
                           <p><strong>Registration</strong></p>
                           <p>You can register on our website</p>
                         </div>
@@ -156,7 +156,7 @@
                         <div class="thumbnail">
                             <img src="dashboard2.png" alt="Dashboard">
                           
-                          <br><br>
+                          
                           <p><strong>Dashboard</strong></p>
                           <p>You can view dashboard in which localStorage can reviewed</p>
                         </div>
@@ -164,6 +164,7 @@
                       <div class="col-sm-4">
                         <div class="thumbnail">
                           <img src="upload.gif" alt="Upload" style="width: 60%">
+                          <br>
                           <p><strong>Upload</strong></p>
                           <p>You can upload documents in localStorage</p>
                         </div>
@@ -207,21 +208,24 @@
             <hr class="clearfix w-100 d-md-none pb-3">
         <div class="col-md-4 mt-md-0 mt-3 ">
         <h5 class="text-uppercase font-weight-bold">Locate us</h5> 
-              <div id="map"></div> 
-              <script> 
-              function initMap() { 
-                var uluru = {lat: 19.000405, lng: 73.104167}; 
-                var map = new google.maps.Map(document.getElementById('map'), { 
-                zoom: 16, 
-                center: uluru 
-                }); 
-                var marker = new google.maps.Marker({ 
-                position: uluru, 
-                map: map 
-                }); 
-              } 
-              </script> 
-          <script async defer src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyC1LausemClKFEUPAucXnE_UUOAtboTlAw&callback=initMap"> </script>
+        <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+          <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+          <script>
+          (function () {
+              var setting = {"height":224,"width":501,"zoom":16,"queryString":"AIKTC COLLEGE, Sector 16, Khanda Colony, Panvel, Navi Mumbai, Maharashtra, India","place_id":"ChIJefH7Njro5zsRbsXoUVCQsLs","satellite":false,"centerCoord":[19.000181955468083,73.1043535],"cid":"0xbbb0905051e8c56e","cityUrl":"/india/navi-mumbai-32471","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"57514"};
+              var d = document;
+              var s = d.createElement('script');
+              s.src = 'https://1map.com/js/script-for-user.js?embed_id=57514';
+              s.async = true;
+              s.onload = function (e) {
+                window.OneMap.initMap(setting)
+              };
+              var to = d.getElementsByTagName('script')[0];
+              to.parentNode.insertBefore(s, to);
+            })();
+            </script>
+            <a href="https://1map.com/map-embed?embed_id=57514">1map.com</a>
+          </div>
         </div>
       </div>
       
