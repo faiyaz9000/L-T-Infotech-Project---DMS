@@ -69,64 +69,38 @@
         <div class="row">
             <div class="col-sm-4"></div>
 
-            <div class="col-sm-4 form-group">                   
-                <label id="hl">You can upload your files here</label>
-                
+            <div class="col-sm-4 form-group">
 
-                <!-- onchange="encodeImageFileAsURL(this)" multiple -->
-                <input type="file" id="upload1" class="btn btn-default btn-file form-control editField file-upload"readonly>
-                <div class="image"></div>
-                <!-- <img src="" id="tableBanner"> -->
-                <input type="file" id="upload2"class="btn btn-default btn-file form-control editField file-upload" readonly>
-                <div class="image"></div>
-                <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteImage()">Delete</button>
-            </div>
+                <div class="upload-field">
+                    <label id="hl">Image Upload</label>
+                    <input type="file" id="upload1" class="btn btn-default btn-file form-control editField file-upload" onchange="uploadImage()" readonly>
+                    <div class="image"></div>
+                    <input type="file" id="upload2"class="btn btn-default btn-file form-control editField file-upload" onchange="uploadImage()" readonly>
+                    <div class="image"></div>
+                    <button class="btn btn-danger" style="margin-top: 2%;"  onclick="deleteImage()">Delete Images</button>
+                </div>
+                <hr>
+                <div class="upload-field">
+                    <label id="hl">Text Upload</label>
+                    <input type="file" id="upload3" class="btn btn-default btn-file form-control editField file-upload" onchange="uploadText()" readonly>
+                    <div id="text-data"></div>
+                    <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteText()">Delete Text</button>
+                </div>
+                <hr>
+                <div class="upload-field">
+                    <label id="hl">Video Upload</label>
+                    <!-- <input type="file" id="upload4" class="btn btn-default btn-file form-control editField file-upload" onchange="uploadVideo()" readonly> -->
+                    <video width="100%" controls>
+                        <source id="show-video" src="mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>           
 
             <div class="col-sm-4"></div>
         </div>
     </div>
-    <!-- <script>
-        $('#input-file').filestyle({
-            buttonName : 'btn-info',
-            buttonText : ' Select a File'
-        });       
-
-        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        
-        document.getElementById("user-fname").innerHTML = currentUser[0].firstName;
-        document.getElementById("user-lname").innerHTML = currentUser[0].lastName;  
-
-        function encodeImageFileAsURL(element) {
-            var file = element.files[0];
-            var reader = new FileReader();
-            reader.onloadend = function() {
-                localStorage.setItem('image',reader.result);
-                // console.log('RESULT', reader.result)
-            }
-            reader.readAsDataURL(file);
-            window.location = "mydoc.html";
-        }
-        document.getElementById("img-show").src = localStorage.getItem('image');      
-
-        function deleteImage() {
-            localStorage.setItem('image',0); 
-            window.location = "mydoc.html";
-        }
-
-        var myImage = localStorage.getItem('image');
-
-        if(myImage == 0){
-            document.getElementById("img-show").style.display = "none";
-        }
-
-    </script> -->
-
+    
     <script>
-        // $('#input-file').filestyle({
-        //       // buttonName : 'btn-info',
-        //      // buttonText : ' Select a File'
-        // });       
-
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         
         document.getElementById("user-fname").innerHTML = currentUser[0].firstName;
@@ -134,8 +108,19 @@
 
 
         $(document).ready(function() {
-            showImages();
+            if( localStorage.getItem('images') != null ){
+                showImages();
+            }
 
+            if( localStorage.getItem('files') != null ){
+                document.getElementById('text-data').innerHTML = localStorage.getItem('files');
+            }
+
+        });
+
+        //Uploading and Displaying Images
+        function uploadImage() {
+            showImages();
 
             $("body").on("change", ".file-upload", function() {
                 var $input = $(this);
@@ -150,20 +135,59 @@
                 }
                 reader.readAsDataURL(file);
             });
-        });
+        }
 
+        //Display images
         function showImages(content) {
             $('.image').empty();
             var images = content || JSON.parse(localStorage.getItem('images')) || [];
-            images.forEach(function(image, i) {
-                $('<img />').prop('src', image).appendTo($('.image').eq(i));
+            images.forEach(function(images, i) {
+                $('<img/>').prop('src', images).appendTo($('.image').eq(i));
             })
         }
 
+        //Delete Images
         function deleteImage() {
             localStorage.removeItem('images');
             window.location = "mydoc.html";                
         }
+
+
+        //Upload Text Files
+        function uploadText() {
+    
+            var preview = document.getElementById('text-data');
+            var file = document.getElementById("upload3").files[0];
+
+            var reader = new FileReader();
+
+            var textFile = /text.*/;
+
+            if (file.type.match(textFile)) {
+                reader.onload = function (event) {
+                preview.innerHTML = event.target.result;
+                localStorage.setItem('files',event.target.result);
+                }
+            } else {
+                preview.innerHTML = "<span class='error'>It doesn't seem to be a text file!</span>";
+            }
+            reader.readAsText(file);
+        }
+        
+        //Delete Text
+        function deleteText() {
+            localStorage.removeItem('files');
+            window.location = "mydoc.html";                
+        }
+
+        //Upload Video
+        // function uploadVideo() {
+        //     var video = document.getElementById('upload4');
+        //     localStorage.setItem('video',video.value);
+
+        //     document.getElementById("show-video").src = video.value;
+        // }
+
     </script>
 
 </body>
