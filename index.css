@@ -60,6 +60,7 @@ body{
 }
 .jmtext{
     text-align: left;
+    font-size: 20px;
 }
 footer{
     width: 100%;
@@ -101,4 +102,52 @@ footer{
       text-align: center;
       margin: 25px 0;
     }
+}
+
+  .panel {
+    border: 1px solid #004085; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #004085 !important;
+    padding: 10px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-body{
+      font-size: 20px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 18px;
+    color: black;
+  }
+  .panel-footer h4 {
+    color: rgb(22, 21, 21);
+    font-size: 18px;
+    
+  }
+  .panel-footer {
+    margin: 15px 0;
+    background-color: #004085;
+    color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+  }
+#price{
+    padding: 2%;
 }
