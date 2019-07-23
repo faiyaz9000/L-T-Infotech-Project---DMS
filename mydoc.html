@@ -8,6 +8,7 @@
     <link rel="icon" href="doc-icon.png">
     
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -17,10 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.min.js"> </script>
-   
-
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="mydoc.css">
     <script src="tablescript.js"></script>
+
 </head>
 <body ng-app="User" id="profbody">
     <div class="container-fluid text-center" ng-controller="UserController" data-ng-init="init()">
@@ -73,26 +74,26 @@
 
                 <div class="upload-field">
                     <label id="hl">Image Upload</label>
-                    <input type="file" id="upload1" class="btn btn-default btn-file form-control editField file-upload" onchange="uploadImage()" readonly>
+                    <input type="file" id="upload1" class="btn btn-default btn-file form-control editField image-upload" onchange="uploadImage()" readonly>
                     <div class="image"></div>
-                    <input type="file" id="upload2"class="btn btn-default btn-file form-control editField file-upload" onchange="uploadImage()" readonly>
+                    <input type="file" id="upload2"class="btn btn-default btn-file form-control editField image-upload" onchange="uploadImage()" readonly>
                     <div class="image"></div>
                     <button class="btn btn-danger" style="margin-top: 2%;"  onclick="deleteImage()">Delete Images</button>
                 </div>
                 <hr>
                 <div class="upload-field">
                     <label id="hl">Text Upload</label>
-                    <input type="file" id="upload3" class="btn btn-default btn-file form-control editField file-upload" onchange="uploadText()" readonly>
+                    <input type="file" id="upload3" class="btn btn-default btn-file form-control editField" onchange="uploadText()" readonly>
                     <div id="text-data"></div>
                     <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteText()">Delete Text</button>
                 </div>
                 <hr>
                 <div class="upload-field">
                     <label id="hl">Video Upload</label>
-                    <!-- <input type="file" id="upload4" class="btn btn-default btn-file form-control editField file-upload" onchange="uploadVideo()" readonly> -->
-                    <video width="100%" controls>
-                        <source id="show-video" src="mov_bbb.mp4" type="video/mp4">
-                    </video>
+                    <input type="file" id="upload4" class="btn btn-default btn-file form-control editField video-upload" onchange="uploadVideo()" readonly> 
+                    <div class="video"></div>
+                    <button class="btn btn-danger" style="margin-top: 2%;" onclick="deleteVideo()">Delete Video</button>
+
                 </div>
             </div>           
 
@@ -116,20 +117,24 @@
                 document.getElementById('text-data').innerHTML = localStorage.getItem('files');
             }
 
+            if( localStorage.getItem('video') != null ){
+                showVideo();
+            }
+
         });
 
         //Uploading and Displaying Images
         function uploadImage() {
             showImages();
 
-            $("body").on("change", ".file-upload", function() {
+            $("body").on("change", ".image-upload", function() {
                 var $input = $(this);
                 var file = $input[0].files[0];
 
                 var reader = new FileReader();
                 reader.onload = function() {
                 var images = JSON.parse(localStorage.getItem('images')) || [];
-                images[$input.index('.file-upload')] = reader.result;
+                images[$input.index('.image-upload')] = reader.result;
                 localStorage.setItem('images', JSON.stringify(images));
                 showImages(images);
                 }
@@ -181,13 +186,38 @@
         }
 
         //Upload Video
-        // function uploadVideo() {
-        //     var video = document.getElementById('upload4');
-        //     localStorage.setItem('video',video.value);
+        function uploadVideo() {
+            showVideo();
 
-        //     document.getElementById("show-video").src = video.value;
-        // }
+            $("body").on("change", ".video-upload", function() {
+                var $input = $(this);
+                var file = $input[0].files[0];
 
+                var reader = new FileReader();
+                reader.onload = function() {
+                var video = JSON.parse(localStorage.getItem('video')) || [];
+                video[$input.index('.video-upload')] = reader.result;
+                localStorage.setItem('video', JSON.stringify(video));
+                showVideo(video);
+                }
+                reader.readAsDataURL(file);
+            });
+        }
+
+        //Display video
+        function showVideo(content) {
+            $('.video').empty();
+            var video = content || JSON.parse(localStorage.getItem('video')) || [];
+            video.forEach(function(video, i) {
+                $('.video').append('<video src="' + video + '" width="100%" controls></video>');
+            })
+        }
+        
+        //Delete Video
+        function deleteVideo() {
+            localStorage.removeItem('video');
+            window.location = "mydoc.html";                
+        }
     </script>
 
 </body>
