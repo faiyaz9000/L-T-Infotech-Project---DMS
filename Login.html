@@ -4,41 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Login | DMS</title>
     <link rel="icon" href="doc-icon.png">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
-
-    <link rel="stylesheet" href="stylel.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">    <link rel="stylesheet" href="stylel.css">
     <script src="tablescript.js"></script>
 </head>
 <body ng-app="User">
-    <div class="container-fluid text-center" ng-controller="UserController">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+    <div class="container-fluid text-center" ng-controller="UserController" data-ng-init="errorLog()">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
                     <span class="navbar-toggler-icon"></span>
                 </button>
     
                 <div class="collapse navbar-collapse " id="collapse_target">
     
-                <a class="navbar-brand" href=""><img class="logoimg" src="logo.gif"></a>
-                <span class="navbar-text">Welcome to Document Management System</span>
-            
+                <a class="navbar-brand" href="index.html"><img class="logoimg" src="logo.gif"></a>
+                <span class="navbar-text" style="color: antiquewhite">Welcome to Document Management System</span>
+                <div class="btn btn-group btn-primary ml-auto">
+                    
+                        <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
                 </div>
         </nav>
         
         <div class="row">
-            <div class="col-sm-4"></div>
-            
+                <div class="col-sm-1"></div>
+
+
+            <div class="col-sm-5 main-head">
+                <h1 class="text-left" style="font-size: 58px;">Ideal for Professionals</h1><br>
+                <p  class="text-left" style="font-size: 20px;">DMS is a development platform inspired by the way you work. From open source to business, you can store and review profile, manage data, and many more features.</p>
+            </div>
+
+            <div class="col-sm-1"></div>
+
+
             <div class="col-sm-3 form-body rounded-lg">
         
                 <div class="form-header">
-                    <h3><strong>Login Form</strong></h3>
+                    <h3><strong>Login to DMS</strong></h3>
                     <p>Kindly use your email and password to login</p>
+                </div>
+
+                <div id="invalid" class="alert alert-danger alert-dismissible show" role="alert" style="display: none">
+                    Incorrect email or password
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="alertClose()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
 
                 <form name="form" class="css-form" novalidate>
@@ -67,19 +85,23 @@
                     </div>
 
                     <div class="login-btn">
-                        <input type="submit" name="login" id="login" value="Login" ng-disabled="form.$invalid" ng-click="checkUser(email)" class="btn btn-success btn-lg">
-                        <br><br>
-                        <a href="#" class="btn btn-secondary btn-sm">Forget Password?</a>
-                        <a href="register.html" class="btn btn-primary btn-sm ">Register</a>
+                        <input type="submit" name="login" id="login" value="Login" ng-disabled="form.$invalid" ng-click="checkUser()" class="btn btn-success">
+                        <a href="register.html" class="btn btn-secondary">Forget Password?</a>
+                      
 
                     </div>
+
+                    
                 </form>
             </div>
 
-        
-            <div class="col-sm-4"></div>
+            <div class="col-sm-2"></div>
+
         </div>
     </div>
+
+   
     
+
 </body>
 </html>
